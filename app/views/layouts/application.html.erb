@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlogRails</title>
+  <title>Blog Rails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+  <header>
+    <div class="logo">
+      <%= link_to "Blog Rails", articles_path %>
+    </div>
+    <nav>
+    </nav>
+  </header>
 
-<%= yield %>
-
+  <%= yield %>
+  </div>
 </body>
 </html>
