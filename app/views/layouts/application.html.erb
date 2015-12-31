@@ -3,20 +3,27 @@
 <head>
   <title>Blog Rails</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', 'http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div class="container">
   <header>
-    <div class="logo">
+    <div class="logo pull-left">
       <%= link_to "Blog Rails", articles_path %>
     </div>
-    <nav>
+    <nav class="pull-left">
+      <div class="menu-item">
+        <%= link_to "Home", articles_path %>
+      </div>
     </nav>
+    <div class="clearfix"></div>
   </header>
 
-  <%= yield %>
+  <main class="row">
+    <%= yield %>
+  </main>
   </div>
 </body>
 </html>

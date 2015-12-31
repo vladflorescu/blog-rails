@@ -1,3 +1,38 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.articles {
+  margin-top: 60px;
+}
+
+div.article {
+  margin-top: 40px;
+  padding: 20px 35px;
+  background: #ECECEC;
+  box-shadow: 1px 1px 7px black;
+  -moz-box-shadow: 1px 1px 7px black;
+  -webkit-box-shadow: 1px 1px 7px black;
+
+  &:first-child {
+    margin-top: 0px;
+  }
+
+  &.article-single {
+    margin-top: 60px;
+  }
+
+  > .title {
+    display: inline-block;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+
+    &, &:hover {
+      color: black;
+    }
+  }
+
+  > .content {
+    font-size: 1.1em;
+  }
+}
