@@ -1,0 +1,19 @@
+.article-form {
+  margin-top: 60px;
+
+  label {
+    color: white;
+    font-size: 1.3em;
+    font-weight: normal;
+    text-shadow: 0px -1px 0px black;
+  }
+
+  .form-group:not(:first-of-type) {
+    margin-top: 40px;
+    resize: none;
+  }
+
+  textarea {
+    resize: none;
+  }
+}

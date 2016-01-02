@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   root 'articles#index';
 
-  resources :articles;
+  get '/articles', to: 'articles#index'
+  get '/article/:id', to: 'articles#show', as: 'article'
+
+  namespace 'admin' do
+    resources 'articles', only: [:index, :new, :create]
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
