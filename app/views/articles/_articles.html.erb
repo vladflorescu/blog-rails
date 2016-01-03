@@ -1,4 +1,14 @@
 <div class="articles col-sm-offset-2 col-sm-8">
+  <% if flash[:success_message] %>
+    <div class="alert alert-success">
+      <%= flash[:success_message] %>
+    </div>
+  <% elsif flash[:error_message] %>
+    <div class="alert alert-danger">
+      <%= flash[:error_message] %>
+    </div>
+  <% end %>
+
   <% articles.each do |article| %>
     <div class="article">
       <% if admin %>
@@ -23,6 +33,10 @@
       <% if article.truncate %>
         <%= link_to "Read more.", article_path(article) %>
       <% end %>
+
+      <div class="info">
+        <%= article.number_of_views %> <i class="fa fa-eye"></i>
+      </div>
     </div>
   <% end %>
 </div>

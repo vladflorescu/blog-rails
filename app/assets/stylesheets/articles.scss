@@ -24,6 +24,10 @@ div.article {
 
   div.options {
     float: right;
+
+    a {
+      margin-left: 5px;
+    }
   }
 
   > .title {
@@ -41,6 +45,14 @@ div.article {
 
     p {
       margin: 0 0 5px;
+    }
+  }
+
+  div.info {
+    margin-top: 20px;
+
+    i {
+      margin-left: 5px;
     }
   }
 
