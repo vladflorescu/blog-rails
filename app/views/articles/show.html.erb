@@ -1,6 +1,12 @@
 <div class="article article-single col-sm-offset-2 col-sm-8">
-  <p class="title"><%= @article.title %></p>
-  <div class="content">
-    <p><%= @article.content %></p>
-  </div>
+  <% if @article.present? %>
+    <%= link_to @article.title, article_path(@article), class: "title" %>
+    <div class="content">
+      <% @article.paragraphs.each do |paragraph| %>
+        <p><%= paragraph %></p>
+      <% end %>
+    </div>
+  <% else %>
+    <h4 class="text-danger">Article not found.</h4>
+  <% end %>
 </div>

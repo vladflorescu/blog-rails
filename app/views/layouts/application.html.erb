@@ -14,8 +14,14 @@
       <%= link_to "Blog Rails", articles_path %>
     </div>
     <nav class="pull-left">
-      <div class="menu-item">
+      <div class="menu-item pull-left">
         <%= link_to "Home", articles_path %>
+      </div>
+      <div class="menu-item pull-left">
+        <%= link_to "New Article", new_admin_article_path %>
+      </div>
+      <div class="menu-item pull-left">
+        <%= link_to "Manage Articles", admin_articles_path %>
       </div>
     </nav>
     <div class="clearfix"></div>

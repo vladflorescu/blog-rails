@@ -22,10 +22,14 @@ div.article {
     margin-top: 60px;
   }
 
+  div.options {
+    float: right;
+  }
+
   > .title {
     display: inline-block;
     font-size: 1.4em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 
     &, &:hover {
       color: black;
@@ -34,5 +38,17 @@ div.article {
 
   > .content {
     font-size: 1.1em;
+
+    p {
+      margin: 0 0 5px;
+    }
+  }
+
+  a {
+    color: #3347B7;
+
+    &:hover {
+      color: #0A1D88;
+    }
   }
 }

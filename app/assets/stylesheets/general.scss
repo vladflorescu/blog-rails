@@ -33,13 +33,17 @@ div.container {
 
     > nav {
       position: relative;
-      top: 32px;
+      top: 23px;
       left: 80px;
       font-size: 1.4em;
 
       a {
         display: inline-block;
         text-shadow: 0px -1px 0px black;
+      }
+
+      .menu-item:not(:first-of-type) {
+        margin-left: 20px;
       }
     }
 

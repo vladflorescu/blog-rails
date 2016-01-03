@@ -1,10 +1,1 @@
-<div class="articles col-sm-offset-2 col-sm-8">
-  <% @articles.each do |article| %>
-    <div class="article">
-      <%= link_to article.title, article_path(article), class: "title" %>
-      <div class="content">
-        <p><%= article.content %></p>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render partial: "articles", locals: {articles: @articles, admin: false} %>

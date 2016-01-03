@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/article/:id', to: 'articles#show', as: 'article'
 
   namespace 'admin' do
-    resources 'articles', only: [:index, :new, :create]
+    resources 'articles', except: [:show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

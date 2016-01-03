@@ -1,41 +1,38 @@
-$(document).ready(()-> {
-  # articleTextarea = $('.article-text-area');
+$(document).ready(()->
+  articleTextarea = $('#article-text-area');
 
-  # articleTextarea.on('keydown.ignoreTabs', (evt)-> {
-  #   if (evt.keyCode == 9) { # tab was pressed
-  #     # get caret position/selection
-  #     start = this.selectionStart;
-  #     end = this.selectionEnd;
+  articleTextarea.on('keydown.ignoreTabs', (evt)->
+    if (evt.keyCode == 9)
+      # prevent the focus lose
+      evt.preventDefault();
 
-  #     $this = $(this);
-  #     value = $this.val();
+      domTextarea = articleTextarea.get(0);
 
-  #     # set textarea value to: text before caret + tab + text after caret
-  #     $this.val(value.substring(0, start)
-  #                 + '\t'
-  #                 + value.substring(end));
+      # get caret position/selection
+      start = domTextarea.selectionStart;
+      end = domTextarea.selectionEnd;
 
-  #     # put caret at right position again (add one for the tab)
-  #     this.selectionStart = this.selectionEnd = start + 1;
+      value = articleTextarea.val();
 
-  #     # prevent the focus lose
-  #     evt.preventDefault();
-  #   }
-  # });
+      # set textarea value to: text before caret + tab + text after caret
+      articleTextarea.val(value.substring(0, start) + '\t' + value.substring(end));
 
-  # resizeTextarea = ()-> {
-  #   articleTextarea.get(0).style.height = 'auto';
-  #   articleTextarea.get(0).style.height = articleTextarea.get(0).scrollHeight + 'px';
-  # }
+      # put caret at right position again (add one for the tab)
+      domTextarea.selectionStart = domTextarea.selectionEnd = start + 1;
+  );
 
-  # articleTextarea.on('keydown.resizeTextarea', resizeTextarea);
-  # articleTextarea.on('change', resizeTextarea);
+  resizeTextarea = ()->
+    articleTextarea.get(0).style.height = 'auto';
+    articleTextarea.get(0).style.height = articleTextarea.get(0).scrollHeight + 'px';
 
-  # articleTextarea.bind({
-  #   paste: resizeTextarea,
-  #   cut: resizeTextarea,
-  #   drop: resizeTextarea
-  # });
+  articleTextarea.on('keydown.resizeTextarea', resizeTextarea);
+  articleTextarea.on('change', resizeTextarea);
 
-  # $(window).on('resize.resizeTextarea', resizeTextarea);
-});
+  articleTextarea.bind({
+    paste: resizeTextarea,
+    cut: resizeTextarea,
+    drop: resizeTextarea
+  });
+
+  $(window).on('resize.resizeTextarea', resizeTextarea);
+);
