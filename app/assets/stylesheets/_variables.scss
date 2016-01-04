@@ -1,0 +1,49 @@
+// Local app settings for Bootstrap variables
+
+// Colors
+
+$gray-dark: #3F3F44;
+$gray: #7D7D8E;
+$gray-light: #CBCBD2;
+$gray-lighter: #E7E7EC;
+$gray-lightest: #ECECEC;
+
+$brand-primary: #00338D;
+$brand-info: #56CDFC;
+$brand-success: #74C080;
+$brand-warning: #FA9F47;
+$brand-danger: #D64242;
+
+$kmpg-green: #007c8f;
+
+$analyzer-color: #9F1D26;
+$accounting-color: #007c8f;
+$credit-color: #D7792A;
+$reporting-color: #8C498B;
+
+$body-bg: #f3f4f5;
+
+// Typography
+$font-family-sans-serif: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// sass precision fix
+$line-height-base: 1.429;
+
+// Buttons
+$btn-font-weight: 600;
+$btn-default-bg: rgba(#fff, 0.0);
+
+// Navbar
+$navbar-height: 60px;
+$navbar-default-bg: #fff;
+$navbar-default-border: $gray-lighter;
+
+$state-danger-text: #D91E18;
+
+// Forms
+$input-color: $gray-dark;
+
+// Tables
+$table-cell-padding: 15px;
+
+// Badges
+$badge-bg: $gray;

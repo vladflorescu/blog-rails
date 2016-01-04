@@ -67,3 +67,20 @@ div.container {
     min-height: 500px;
   }
 }
+
+div.notice {
+  padding: 20px 35px;
+  background: $gray-lightest;
+
+  > p, > span {
+    color: black;
+    font-weight: 100;
+    font-size: 1.5em;
+  }
+}
+
+div.shadow-box {
+  box-shadow: 1px 1px 7px black;
+  -moz-box-shadow: 1px 1px 7px black;
+  -webkit-box-shadow: 1px 1px 7px black;
+}

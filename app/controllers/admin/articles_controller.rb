@@ -2,7 +2,12 @@ class Admin::ArticlesController < ApplicationController
   http_basic_authenticate_with name: 'admin', password: 'admin'
 
   def index
-    @articles = Article.all
+    if params[:q]
+      @articles = Article.where("title LIKE ? OR content LIKE ?",
+                                "%#{params[:q]}%", "%#{params[:q]}%")
+    else
+      @articles = Article.all
+    end
   end
 
   def new
@@ -14,7 +19,8 @@ class Admin::ArticlesController < ApplicationController
     if article.save
       flash[:success_message] = "Article successfuly published."
     else
-      flash[:fail_message] = "Article publication error: #{article.errors}."
+      flash[:error_message] = "Article publication error:"
+                            + " #{article.errors.full_messages.join(', ')}."
     end
 
     redirect_to polymorphic_path([:admin, :articles])
@@ -30,7 +36,8 @@ class Admin::ArticlesController < ApplicationController
     if article.update_attributes(article_params)
       flash[:success_message] = "Article successfuly updated."
     else
-      flash[:fail_message] = "Article update error: #{article.errors}."
+      flash[:error_message] = "Article update error:"
+                            + " #{article.errors.full_messages.join(', ')}."
     end
 
     redirect_to polymorphic_path([:admin, :articles])
@@ -42,7 +49,8 @@ class Admin::ArticlesController < ApplicationController
     if article.destroy
       flash[:success_message] = "Article successfuly deleted."
     else
-      flash[:error_message] = "Article delete error: #{article.errors}."
+      flash[:error_message] = "Article delete error: "
+                            + "#{article.errors.full_messages.join(', ')}."
     end
 
     redirect_to polymorphic_path([:admin, :articles])

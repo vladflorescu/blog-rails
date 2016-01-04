@@ -16,6 +16,8 @@
 @import "bootstrap";
 @import "font-awesome";
 
+@import "_variables.scss";
+@import "_utilities.scss";
 @import "general";
 @import "articles";
 @import "admin/articles";

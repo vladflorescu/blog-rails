@@ -35,4 +35,7 @@ $(document).ready(()->
   });
 
   $(window).on('resize.resizeTextarea', resizeTextarea);
+
+  # For when you're entering on the edit page
+  resizeTextarea();
 );

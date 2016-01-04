@@ -1,3 +1,19 @@
+<div class="col-sm-offset-2 col-sm-8 u-margin-Ts">
+  <div class="col-sm-6 pull-right u-padding-Rn">
+    <%= form_tag (admin ? admin_articles_path : articles_path),
+                  method: :get, class: "navbar-form pull-right u-padding-Rn" do %>
+      <div class="input-group">
+        <%= text_field_tag :q, params[:q], class: "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag(type: "submit", name: nil, class: "btn btn-default") do %>
+            <i class="glyphicon glyphicon-search"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="articles col-sm-offset-2 col-sm-8">
   <% if flash[:success_message] %>
     <div class="alert alert-success">
@@ -9,7 +25,7 @@
     </div>
   <% end %>
 
-  <% articles.each do |article| %>
+  <% if articles.each do |article| %>
     <div class="article">
       <% if admin %>
         <div class="options">
@@ -37,6 +53,10 @@
       <div class="info">
         <%= article.number_of_views %> <i class="fa fa-eye"></i>
       </div>
+    </div>
+  <% end.empty? %>
+    <div class="notice">
+      <p>There are no articles available.</p>
     </div>
   <% end %>
 </div>
