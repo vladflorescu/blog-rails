@@ -3,7 +3,9 @@
     <%= form_tag (admin ? admin_articles_path : articles_path),
                   method: :get, class: "navbar-form pull-right u-padding-Rn" do %>
       <div class="input-group">
-        <%= text_field_tag :q, params[:q], class: "form-control" %>
+        <%= text_field_tag :q, params[:q],
+                            class: "form-control",
+                            placeholder: "Search for articles..." %>
         <div class="input-group-btn">
           <%= button_tag(type: "submit", name: nil, class: "btn btn-default") do %>
             <i class="glyphicon glyphicon-search"></i>

@@ -17,17 +17,6 @@
       <p>Comments</p>
     </div>
 
-    <div class="comments">
-      <% if @article.comments.order(created_at: :desc).each do |comment| %>
-        <div class="comment">
-          <p class="title"><%= comment.name %></p>
-          <p class="content"><%= comment.content %></p>
-        </div>
-      <% end.empty? %>
-        <p class="lead u-margin-Lxl">There are no comments.</p>
-      <% end %>
-    </div>
-
     <div class="form-wrapper">
       <label class="header">Write a comment:</label>
       <%= form_for @new_comment, url: { action: :create, controller: :comments },
@@ -36,6 +25,17 @@
         <%= form.text_area :content, class: "form-control", rows: "5", placeholder: "Your comment" %>
         <%= form.hidden_field :article_id, value: @article.id %>
         <%= form.submit "Submit", class: "btn btn-default" %>
+      <% end %>
+    </div>
+
+    <div class="comments">
+      <% if @article.comments.order(created_at: :desc).each do |comment| %>
+        <div class="comment">
+          <p class="title"><%= comment.name %></p>
+          <p class="content"><%= comment.content %></p>
+        </div>
+      <% end.empty? %>
+        <p class="lead u-margin-Lxl">There are no comments.</p>
       <% end %>
     </div>
   </div>

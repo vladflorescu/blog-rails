@@ -101,6 +101,10 @@ div.comments-wrapper {
         margin: 0 0 5px;
       }
     }
+
+    > div.comment:last-child {
+      margin-bottom: 40px;
+    }
   }
 
   > .form-wrapper {
